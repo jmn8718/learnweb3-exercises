@@ -1,0 +1,24 @@
+{
+  "name": "freshman",
+  "version": "1.0.0",
+  "description": "freshman track examples",
+  "main": "index.js",
+  "scripts": {
+    "start": "lite-server",
+    "hardhat": "hardhat",
+    "compile": "hardhat compile",
+    "deploy": "hardhat run scripts/deploy.ts --network goerli"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@nomicfoundation/hardhat-toolbox": "^2.0.1",
+    "hardhat": "^2.12.6",
+    "lite-server": "^2.6.1"
+  },
+  "dependencies": {
+    "@openzeppelin/contracts": "^4.8.1",
+    "dotenv": "^16.0.3"
+  }
+}
