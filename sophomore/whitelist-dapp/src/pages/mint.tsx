@@ -182,11 +182,12 @@ export default function Home() {
       // We will get the signer now to extract the address of the currently connected MetaMask account
       const signer = await getProviderOrSigner(true);
       // Get the address associated to the signer which is connected to  MetaMask
+      // @ts-expect-error
       const address = await signer.getAddress();
       if (address.toLowerCase() === _owner.toLowerCase()) {
         setIsOwner(true);
       }
-    } catch (err) {
+    } catch (err: any) {
       console.error(err.message);
     }
   };
@@ -226,6 +227,7 @@ export default function Home() {
   const getProviderOrSigner = async (needSigner = false) => {
     // Connect to Metamask
     // Since we store `web3Modal` as a reference, we need to access the `current` value to get access to the underlying object
+    // @ts-expect-error
     const provider = await web3ModalRef.current.connect();
     const web3Provider = new providers.Web3Provider(provider);
 
@@ -251,6 +253,7 @@ export default function Home() {
     if (!walletConnected) {
       // Assign the Web3Modal class to the reference object by setting it's `current` value
       // The `current` value is persisted throughout as long as this page is open
+      // @ts-expect-error
       web3ModalRef.current = new Web3Modal({
         network: "goerli",
         providerOptions: {},
@@ -260,6 +263,7 @@ export default function Home() {
 
       // Check if presale has started and ended
       const _presaleStarted = checkIfPresaleStarted();
+      // @ts-ignore
       if (_presaleStarted) {
         checkIfPresaleEnded();
       }
