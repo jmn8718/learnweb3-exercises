@@ -74,6 +74,24 @@ Crypto Devs Contract Address: yyy
 NEXT_PUBLIC_NFT_CONTRACT_ADDRESS=yyy
 ```
 
+7. Publish the code to github and deploy to vercel. Replace the `.env` file the value to point to our deployed app domain
+
+```
+METADATA_URL="https://learnweb3-whitelist-dapp-one.vercel.app/"
+```
+
+5. Deploy again the nft contract to goerli network so the metadata points to the deployed app domain
+
+```shell
+whitelist-dapp % npm run deploy:cryptodevs
+
+> whitelist-dapp@1.0.0 deploy:cryptodevs
+> hardhat run scripts/deploy-cryptodevs.ts --network goerli
+
+Crypto Devs Contract Address: yyy
+```
+
+
 ## frontend
 
 It uses nextjs for the frontend, it requires to have compiled the contract in order to generate the Whitelist.json and use the `abi` from the generated file.
