@@ -80,7 +80,7 @@ NEXT_PUBLIC_NFT_CONTRACT_ADDRESS=yyy
 METADATA_URL="https://learnweb3-whitelist-dapp-one.vercel.app/"
 ```
 
-5. Deploy again the nft contract to goerli network so the metadata points to the deployed app domain
+8. Deploy again the nft contract to goerli network so the metadata points to the deployed app domain
 
 ```shell
 whitelist-dapp % npm run deploy:cryptodevs
@@ -91,9 +91,12 @@ whitelist-dapp % npm run deploy:cryptodevs
 Crypto Devs Contract Address: yyy
 ```
 
-
 ## frontend
 
 It uses nextjs for the frontend, it requires to have compiled the contract in order to generate the Whitelist.json and use the `abi` from the generated file.
 
 Execute `npm run dev` to start the client
+
+## NFT
+
+Once you have deployed the app and joined and minted a NFT, you will be able to verify it on opensea, visit `https://testnets.opensea.io/assets/goerli/zzz/1`, and replace `zzz` with your nft smartcontract. You can check my nft [here](https://testnets.opensea.io/assets/goerli/0xfB43253344B05aB408D82B0EF52dCb82Ca9c92FE/1)

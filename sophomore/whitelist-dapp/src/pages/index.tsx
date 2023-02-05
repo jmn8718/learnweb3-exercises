@@ -4,8 +4,10 @@ import Web3Modal from "web3modal";
 import { providers, Contract } from "ethers";
 import { useEffect, useRef, useState } from "react";
 import { WHITELIST_CONTRACT_ADDRESS, whitelistContractAbi as abi } from "../constants";
+import { useRouter } from "next/router";
 
 export default function Home() {
+  const router = useRouter()
   // walletConnected keep track of whether the user's wallet is connected or not
   const [walletConnected, setWalletConnected] = useState(false);
   // joinedWhitelist keeps track of whether the current metamask address has joined the Whitelist or not
@@ -49,6 +51,14 @@ export default function Home() {
     }
     return web3Provider;
   };
+
+  /**
+   * goMintNft: Redirect to mint page
+   */
+  const goMintNft = async (e: { preventDefault: () => void; }) => {
+    e.preventDefault()
+    router.push('/mint')
+  }
 
   /**
    * addAddressToWhitelist: Adds the current connected address to the whitelist
@@ -153,9 +163,14 @@ export default function Home() {
     if (walletConnected) {
       if (joinedWhitelist) {
         return (
-          <div className={styles.description}>
-            Thanks for joining the Whitelist!
-          </div>
+          <>
+            <div className={styles.description}>
+              Thanks for joining the Whitelist!
+            </div>
+            <button onClick={goMintNft} className={styles.button}>
+              Go to mint a NFT
+            </button>
+          </>
         );
       } else if (loading) {
         return <button className={styles.button}>Loading...</button>;
