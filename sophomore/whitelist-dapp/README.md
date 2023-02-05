@@ -14,7 +14,7 @@ PRIVATE_KEY="add-the-private-key-here"
 
 ## contrct deployment
 
-Compile the contract:
+1. Compile the contract:
 
 ```shell
 whitelist-dapp % npm run compile
@@ -27,21 +27,51 @@ Successfully generated 6 typings!
 Compiled 1 Solidity file successfully
 ```
 
-Deploy the contract to goerli network
+2. Deploy the whitelist contract to goerli network
 
 ```shell
-whitelist-dapp % npm run deploy
+whitelist-dapp % npm run deploy:whitelist
 
 > whitelist-dapp@1.0.0 deploy
-> hardhat run scripts/deploy.ts --network goerli
+> hardhat run scripts/deploy-whitelist.ts --network goerli
 
 Whitelist Contract Address: xxx
 ```
 
-Now add the whitelist contract address value to the `.env` file so we can use in the nextjs client
+3. Now add the whitelist contract address value to the `.env` file so we can use in the codebase, we add `NEXT_PUBLIC_` prefix so we can use it on the nextjs client
 
 ```
 NEXT_PUBLIC_WHITELIST_CONTRACT_ADDRESS=xxx
+```
+
+4. Recompile again
+
+```shell
+whitelist-dapp % npm run compile  
+
+> whitelist-dapp@1.0.0 compile
+> hardhat compile
+
+Generating typings for: 15 artifacts in dir: typechain-types for target: ethers-v5
+Successfully generated 44 typings!
+Compiled 15 Solidity files successfully
+```
+
+5. Deploy the nft contract to goerli network
+
+```shell
+whitelist-dapp % npm run deploy:cryptodevs
+
+> whitelist-dapp@1.0.0 deploy:cryptodevs
+> hardhat run scripts/deploy-cryptodevs.ts --network goerli
+
+Crypto Devs Contract Address: yyy
+```
+
+6. Now add the nft contract address value to the `.env` file so we can use in the codebase
+
+```
+NEXT_PUBLIC_NFT_CONTRACT_ADDRESS=yyy
 ```
 
 ## frontend
