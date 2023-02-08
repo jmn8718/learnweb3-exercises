@@ -124,6 +124,9 @@ export default function Home() {
       const nftContract = new Contract(NFT_CONTRACT_ADDRESS, abi, provider);
       // call the presaleStarted from the contract
       const _presaleStarted = await nftContract.presaleStarted();
+      console.log({
+        _presaleStarted
+      })
       if (!_presaleStarted) {
         await getOwner();
       }
@@ -154,6 +157,7 @@ export default function Home() {
       // We compare if the _presaleEnded timestamp is less than the current time
       // which means presale has ended
       const hasEnded = _presaleEnded.lt(Math.floor(Date.now() / 1000));
+      console.log({hasEnded})
       if (hasEnded) {
         setPresaleEnded(true);
       } else {
@@ -184,7 +188,9 @@ export default function Home() {
       // Get the address associated to the signer which is connected to  MetaMask
       // @ts-expect-error
       const address = await signer.getAddress();
+      console.log({a: address.toLowerCase(), o: _owner.toLowerCase()})
       if (address.toLowerCase() === _owner.toLowerCase()) {
+        console.log({isOwner})
         setIsOwner(true);
       }
     } catch (err: any) {
@@ -306,8 +312,9 @@ export default function Home() {
       return <button className={styles.button}>Loading...</button>;
     }
 
+    console.log({isOwner})
     // If connected user is the owner, and presale hasnt started yet, allow them to start the presale
-    if (isOwner && !presaleStarted) {
+    if (isOwner) {
       return (
         <button className={styles.button} onClick={startPresale}>
           Start Presale!

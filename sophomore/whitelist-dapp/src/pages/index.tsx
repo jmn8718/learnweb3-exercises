@@ -57,7 +57,7 @@ export default function Home() {
    */
   const goMintNft = async (e: { preventDefault: () => void; }) => {
     e.preventDefault()
-    router.push('/mint')
+    router.push('/nft')
   }
 
   /**
