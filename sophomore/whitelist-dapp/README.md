@@ -37,6 +37,14 @@ METADATA_URL="https://learnweb3-whitelist-dapp-one.vercel.app/api/"
 - [ ] The price of one CD at the time of ICO should be `0.001 ether`.
 - [ ] There should be a website that users can visit for the ICO.
 
+- [Part IV](https://learnweb3.io/courses/c1d7081b-63a9-4c6e-b35c-9fcbbad418b2/lessons/dbae87fd-9595-4fdf-a0a6-7ef9ca2c24a7)
+
+- [ ] Anyone with a `CryptoDevs NFT` can create a proposal to purchase a different NFT from an NFT marketplace
+- [ ] Everyone with a `CryptoDevs NFT` can vote for or against the active proposals
+- [ ] Each NFT counts as one vote for each proposal
+- [ ] Voter cannot vote multiple times on the same proposal with the same NFT
+- [ ] If majority of the voters vote for the proposal by the deadline, the NFT purchase is automatically executed
+
 ## contract deployment
 
 1. Compile the contract:
@@ -131,6 +139,25 @@ Crypto Devs Token Contract Address: zzz
 
 ```
 NEXT_PUBLIC_TOKEN_CONTRACT_ADDRESS=zzz
+```
+
+11. Deploy NFT Marketplace and DAO to goerli network
+
+```shell
+whitelist-dapp % npm run deploy:dao
+
+> whitelist-dapp@1.0.0 deploy:dao
+> hardhat run scripts/deploy-dao.ts --network goerli
+
+FakeNFTMarketplace deployed to:  xyz1
+CryptoDevsDAO deployed to:  xyz2
+```
+
+12. Now add the contract addresses values to the `.env` file so we can use in the codebase
+
+```
+NEXT_PUBLIC_CRYPTODEVS_NFT_MARKETPLACE_CONTRACT_ADDRESS=xyz1
+NEXT_PUBLIC_CRYPTODEVS_DAO_CONTRACT_ADDRESS=xyz2
 ```
 
 

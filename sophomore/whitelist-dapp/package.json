@@ -12,7 +12,8 @@
     "compile": "hardhat compile",
     "deploy:whitelist": "hardhat run scripts/deploy-whitelist.ts --network goerli",
     "deploy:cryptodevs": "hardhat run scripts/deploy-cryptodevs.ts --network goerli",
-    "deploy:cryptodevtoken": "hardhat run scripts/deploy-cryptodevtoken.ts --network goerli"
+    "deploy:cryptodevtoken": "hardhat run scripts/deploy-cryptodevtoken.ts --network goerli",
+    "deploy:dao": "hardhat run scripts/deploy-dao.ts --network goerli"
   },
   "keywords": [],
   "author": "",
