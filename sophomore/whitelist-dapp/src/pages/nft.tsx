@@ -1,6 +1,7 @@
 import { Contract, providers, utils } from "ethers";
 import Head from "next/head";
 import React, { useEffect, useRef, useState } from "react";
+import { AppContainer } from "src/components/Container";
 import Web3Modal from "web3modal";
 import { cryptoDevsContractAbi as abi, NFT_CONTRACT_ADDRESS } from "../constants";
 import styles from "../styles/Home.module.css";
@@ -359,11 +360,11 @@ export default function Home() {
   return (
     <div>
       <Head>
-        <title>Crypto Devs</title>
+        <title>NFT</title>
         <meta name="description" content="Whitelist-Dapp" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <div className={styles.main}>
+      <AppContainer>
         <div>
           <h1 className={styles.title}>Welcome to Crypto Devs!</h1>
           <div className={styles.description}>
@@ -377,11 +378,7 @@ export default function Home() {
         <div>
           <img className={styles.image} src="./cryptodevs/0.svg" />
         </div>
-      </div>
-
-      <footer className={styles.footer}>
-        Made with &#10084; by Crypto Devs
-      </footer>
+      </AppContainer>
     </div>
   );
 }

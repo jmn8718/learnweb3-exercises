@@ -2,6 +2,7 @@ import { Contract, providers } from "ethers";
 import { formatEther } from "ethers/lib/utils";
 import Head from "next/head";
 import { useEffect, useRef, useState } from "react";
+import { AppContainer } from "src/components/Container";
 import Web3Modal from "web3modal";
 import {
   cryptoDevDaoContractAbi,
@@ -397,12 +398,12 @@ export default function Home() {
   return (
     <div>
       <Head>
-        <title>CryptoDevs DAO</title>
+        <title>DAO</title>
         <meta name="description" content="CryptoDevs DAO" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <div className={styles.main}>
+      <AppContainer>
         <div>
           <h1 className={styles.title}>Welcome to Crypto Devs!</h1>
           <div className={styles.description}>Welcome to the DAO!</div>
@@ -443,11 +444,7 @@ export default function Home() {
         <div>
           <img className={styles.image} src="/cryptodevs/0.svg" />
         </div>
-      </div>
-
-      <footer className={styles.footer}>
-        Made with &#10084; by Crypto Devs
-      </footer>
+      </AppContainer>
     </div>
   );
 }

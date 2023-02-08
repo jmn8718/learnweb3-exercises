@@ -5,6 +5,7 @@ import { providers, Contract } from "ethers";
 import { useEffect, useRef, useState } from "react";
 import { WHITELIST_CONTRACT_ADDRESS, whitelistContractAbi as abi } from "../constants";
 import { useRouter } from "next/router";
+import { AppContainer } from "src/components/Container";
 
 export default function Home() {
   const router = useRouter()
@@ -215,7 +216,7 @@ export default function Home() {
         <meta name="description" content="Whitelist-Dapp" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <div className={styles.main}>
+      <AppContainer>
         <div>
           <h1 className={styles.title}>Welcome to Crypto Devs!</h1>
           <div className={styles.description}>
@@ -229,11 +230,7 @@ export default function Home() {
         <div>
           <img className={styles.image} src="./crypto-devs.svg" />
         </div>
-      </div>
-
-      <footer className={styles.footer}>
-        Made with &#10084; by Crypto Devs
-      </footer>
+      </AppContainer>
     </div>
   );
 }
