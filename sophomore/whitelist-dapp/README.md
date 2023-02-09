@@ -45,6 +45,13 @@ METADATA_URL="https://learnweb3-whitelist-dapp-one.vercel.app/api/"
 - [ ] Voter cannot vote multiple times on the same proposal with the same NFT
 - [ ] If majority of the voters vote for the proposal by the deadline, the NFT purchase is automatically executed
 
+- [Part V](https://learnweb3.io/courses/c1d7081b-63a9-4c6e-b35c-9fcbbad418b2/lessons/8f68b61a-14b2-429f-9fd3-2d2e8211421f)
+
+- [ ] Build an exchange with only one asset pair (Eth / Crypto Dev)
+- [ ] Your Decentralized Exchange should take a fee of `1%` on swaps
+- [ ] When user adds liquidity, they should be given `Crypto Dev LP` tokens (Liquidity Provider tokens)
+- [ ] CD LP tokens should be given proportional to the `Ether` user is willing to add to the liquidity
+
 ## contract deployment
 
 1. Compile the contract:
@@ -160,6 +167,22 @@ NEXT_PUBLIC_CRYPTODEVS_NFT_MARKETPLACE_CONTRACT_ADDRESS=xyz1
 NEXT_PUBLIC_CRYPTODEVS_DAO_CONTRACT_ADDRESS=xyz2
 ```
 
+13. Deploy Exchange contract to goerli network
+
+```shell
+whitelist-dapp % npm run deploy:exchange
+
+> whitelist-dapp@1.0.0 deploy:exchange
+> hardhat run scripts/deploy-exchange.ts --network goerli
+
+Exchange Contract Address: www
+```
+
+14. Now add the contract addresses values to the `.env` file so we can use in the codebase
+
+```
+NEXT_PUBLIC_EXCHANGE_CONTRACT_ADDRESS=www
+```
 
 ## frontend
 
