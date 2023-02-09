@@ -4,6 +4,14 @@ import { providers } from "ethers";
 import styles from "../styles/Home.module.css";
 import Link from "next/link";
 
+const HeaderLink = ({ text, link }: { text: string; link: string}) => (
+  <div className={styles.headerlink}>
+    <Link href={link}>
+      {text}
+    </Link>
+  </div>
+);
+
 export const TopHeader = () => {
   // walletConnected keep track of whether the user's wallet is connected or not
   const [walletConnected, setWalletConnected] = useState(false);
@@ -77,21 +85,10 @@ export const TopHeader = () => {
   
   return (<div className={styles.header}>{walletConnected ? (
     <>
-      <div className={styles.headerlink}>
-        <Link href="/nft">
-          NFT
-        </Link>
-      </div>
-      <div className={styles.headerlink}>
-        <Link href="/token">
-          TOKEN
-        </Link>
-      </div>
-      <div className={styles.headerlink}>
-        <Link href="/dao">
-          DAO
-        </Link>
-      </div>
+      <HeaderLink link="/nft" text="NFT" />
+      <HeaderLink link="/token" text="TOKEN" />
+      <HeaderLink link="/dao" text="DAO" />
+      <HeaderLink link="/exchange" text="EXCHANGE" />
     </>
   ) : (
     <>
